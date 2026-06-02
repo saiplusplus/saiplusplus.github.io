@@ -1,0 +1,85 @@
+/* Global CSS */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  background: linear-gradient(180deg, var(--bg-shade) 0px, var(--white) 80px);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+:root {
+  --primary:       #3B83EE;
+  --heading-color: #282938;
+  --bg-shade:      #f5fcff;
+  --darkblue:      #1c1e53;
+  --black:         #000000;
+  --white:         #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Buttons */
+.btn {
+  font-family: "Roboto", sans-serif;
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  background-color: var(--white);
+  border: 1px solid var(--primary);
+}
+.btn-outline-primary:hover {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.btn-primary {
+  color: var(--white);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.btn-primary:hover {
+  color: var(--primary);
+  background-color: var(--white);
+}
+
+/* Typography scale */
+h1 { font-size: 56px; font-weight: 700; line-height: 67px; }
+h2 { font-size: 48px; font-weight: 700; line-height: 58px; }
+h3 { font-size: 24px; font-weight: 700; line-height: 34px; }
+
+.text-lg {
+  color: var(--darkblue);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+.text-md {
+  color: var(--darkblue);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+}
+.text-sm {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}

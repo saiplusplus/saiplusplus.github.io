@@ -1,0 +1,126 @@
+/* ============================================================
+   About Me page
+   ============================================================ */
+.am-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-shade) 0px, var(--white) 120px);
+  padding: 120px 24px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Active nav item */
+.navbar--content--active {
+  color: var(--primary) !important;
+}
+
+/* Back button */
+.am-back {
+  align-self: flex-start;
+  margin-bottom: 8px;
+}
+
+/* Page title */
+.am-title {
+  color: var(--heading-color);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+  margin: 0 0 48px;
+  text-align: center;
+}
+
+/* Content wrapper — constrains width */
+.am-content {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ── Generic section ── */
+.am-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.am-section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+}
+
+.am-section-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 28px;
+  border-radius: 2px;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.am-section-title-label {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--heading-color);
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+/* ── TLDR list ── */
+.am-tldr-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.am-tldr-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 16px;
+  color: var(--darkblue);
+  line-height: 26px;
+}
+
+.am-tldr-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+.am-inline-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.am-inline-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .am-title {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 32px;
+  }
+
+  .am-section-title-label {
+    font-size: 18px;
+  }
+}

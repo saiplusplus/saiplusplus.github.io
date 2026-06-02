@@ -1,0 +1,290 @@
+/* ============================================================
+   Work Experience page
+   ============================================================ */
+.we-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-shade) 0px, var(--white) 120px);
+  padding: 120px 24px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Back button */
+.we-back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--darkblue);
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 0;
+  margin-left: 16px;
+  transition: color 0.2s;
+}
+
+.we-back:hover {
+  color: var(--primary);
+}
+
+.we-back:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Page title */
+.we-title {
+  color: var(--heading-color);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+  margin: 40px 0 56px;
+  text-align: center;
+}
+
+/* Active nav item on work experience page */
+.navbar--content--active {
+  color: var(--primary) !important;
+}
+
+/* LinkedIn hint line */
+.we-linkedin-hint {
+  font-size: 15px;
+  color: var(--darkblue);
+  opacity: 0.75;
+  margin: -36px 0 48px;
+  text-align: center;
+}
+
+.we-linkedin-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.we-linkedin-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+/* ── Timeline list ── */
+.we-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Single timeline item ── */
+.we-item {
+  display: grid;
+  grid-template-columns: 180px 28px 1fr;
+  column-gap: 20px;
+  position: relative;
+}
+
+/* ── Connector column (dot + vertical line) ── */
+.we-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.we-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(59, 131, 238, 0.18);
+}
+
+.we-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary) 0%, rgba(59,131,238,0.15) 100%);
+  margin-top: 6px;
+  min-height: 40px;
+}
+
+/* ── Photo / logo column (left of line) ── */
+.we-logo-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+/* Plain logo tile (no photo yet) */
+.we-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.we-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Personal photo card */
+.we-photo-card {
+  position: relative;
+  width: 170px;
+  flex-shrink: 0;
+}
+
+.we-photo-img {
+  width: 170px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo badge overlaid bottom-right of photo */
+.we-logo-badge {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--white);
+  border: 2px solid var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Text content column ── */
+.we-content {
+  padding: 4px 0 56px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.we-item:last-child .we-content {
+  padding-bottom: 0;
+}
+
+.we-period {
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 2px;
+}
+
+.we-role {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--heading-color);
+  line-height: 26px;
+  margin: 4px 0 0;
+}
+
+.we-company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--darkblue);
+  opacity: 0.65;
+  margin: 2px 0 0;
+}
+
+.we-desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--darkblue);
+  line-height: 24px;
+  margin: 10px 0 0;
+}
+
+/* Key skills */
+.we-skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.we-skills-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-right: 2px;
+  white-space: nowrap;
+}
+
+.we-skill-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--darkblue);
+  background: rgba(59, 131, 238, 0.09);
+  border: 1px solid rgba(59, 131, 238, 0.2);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .we-title {
+    font-size: 28px;
+    line-height: 36px;
+    margin: 32px 0 40px;
+  }
+
+  .we-item {
+    grid-template-columns: 140px 24px 1fr;
+    column-gap: 12px;
+  }
+
+  .we-photo-img {
+    width: 140px;
+    height: 170px;
+  }
+
+  .we-photo-card {
+    width: 140px;
+  }
+
+  .we-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .we-back {
+    margin-left: 0;
+  }
+}

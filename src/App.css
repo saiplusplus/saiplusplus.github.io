@@ -1,0 +1,274 @@
+/* ============================================================
+   Navbar — fixed top bar
+   ============================================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 85px;
+  background: rgba(245, 252, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
+  right: 25%;
+  height: 10px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+}
+
+.navbar--logo {
+  color: var(--darkblue);
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navbar--items {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar--items a {
+  text-decoration: none;
+}
+
+.navbar--content {
+  color: var(--darkblue);
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navbar--content:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 28px 24px;
+  }
+  .navbar--items {
+    gap: 20px;
+  }
+  .navbar--content {
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   Page wrapper — full-viewport centering + gradient background
+   ============================================================ */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 6rem 2rem 2rem;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Profile section — horizontal flex layout
+   ============================================================ */
+.profile-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+}
+
+@media (max-width: 640px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   Profile picture — rounded rectangle with zoom
+   ============================================================ */
+.profile-picture-wrapper {
+  width: 480px;
+  max-width: 100%;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.profile-picture {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.08);
+  transform-origin: center center;
+}
+
+@media (max-width: 640px) {
+  .profile-picture-wrapper {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   Profile text — vertical stack of name, tagline, bio, buttons
+   ============================================================ */
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 520px;
+}
+
+@media (max-width: 640px) {
+  .profile-text {
+    align-items: center;
+  }
+}
+
+.profile-text h1 {
+  color: var(--heading-color);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .profile-text h1 {
+    font-size: 28px;
+    line-height: 36px;
+    white-space: normal;
+  }
+}
+
+/* ============================================================
+   Keywords tagline — visually distinct from bio
+   ============================================================ */
+.keywords-tagline {
+  color: var(--primary);
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 24px;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   Bio
+   ============================================================ */
+.bio {
+  color: var(--darkblue);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  margin: 0;
+}
+
+/* ============================================================
+   Email
+   ============================================================ */
+.email {
+  color: var(--darkblue);
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ============================================================
+   Link buttons container
+   ============================================================ */
+.link-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .link-buttons {
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   Link button — uses global .btn base + primary variant
+   ============================================================ */
+.link-btn {
+  font-family: "Roboto", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.5s, color 0.5s;
+  /* Default: filled primary */
+  color: var(--white);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.link-btn:hover {
+  color: var(--primary);
+  background-color: var(--white);
+}
+
+.link-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Icon-only button (no label text) */
+.link-btn:has(> svg:only-child),
+.link-btn--icon-only {
+  padding: 14px 18px;
+}
+
+/* ============================================================
+   Disabled link button state
+   ============================================================ */
+.link-btn--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
