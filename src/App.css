@@ -69,9 +69,13 @@
 @media (max-width: 640px) {
   .navbar {
     padding: 28px 24px;
+    justify-content: center;
   }
   .navbar--items {
+    position: static;
+    transform: none;
     gap: 20px;
+    justify-content: center;
   }
   .navbar--content {
     font-size: 14px;
@@ -104,7 +108,7 @@
 @media (max-width: 640px) {
   .profile-section {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -146,7 +150,7 @@
 
 @media (max-width: 640px) {
   .profile-text {
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
@@ -214,7 +218,7 @@
 
 @media (max-width: 640px) {
   .link-buttons {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 

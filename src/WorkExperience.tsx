@@ -109,7 +109,7 @@ export default function WorkExperience({ onBack, linkedInUrl, blogUrl, onGoHome 
         >
           <polyline points="15 18 9 12 15 6" />
         </svg>
-        Back
+        back to home
       </button>
 
       {/* Page title */}

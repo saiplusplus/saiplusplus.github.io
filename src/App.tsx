@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import profilePlaceholder from './assets/hero.JPG'
 import WorkExperience from './WorkExperience'
@@ -69,15 +69,35 @@ function LinkButton({ label, href, icon, download, newTab }: LinkButtonProps) {
   );
 }
 
+type Page = 'home' | 'experience' | 'about';
+
+function hashToPage(hash: string): Page {
+  if (hash === '#experience') return 'experience';
+  if (hash === '#about') return 'about';
+  return 'home';
+}
+
 function App() {
-  const [page, setPage] = useState<'home' | 'experience' | 'about'>('home');
+  const [page, setPage] = useState<Page>(() => hashToPage(window.location.hash));
+
+  const navigate = (p: Page) => {
+    const hash = p === 'home' ? '' : `#${p}`;
+    window.location.hash = hash;
+    setPage(p);
+  };
+
+  useEffect(() => {
+    const onHashChange = () => setPage(hashToPage(window.location.hash));
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
 
   if (page === 'experience') {
-    return <WorkExperience onBack={() => setPage('home')} linkedInUrl={LINKEDIN_URL} blogUrl={BLOG_URL} onGoHome={() => setPage('about')} />;
+    return <WorkExperience onBack={() => navigate('home')} linkedInUrl={LINKEDIN_URL} blogUrl={BLOG_URL} onGoHome={() => navigate('about')} />;
   }
 
   if (page === 'about') {
-    return <AboutMe onGoExperience={() => setPage('experience')} onGoHome={() => setPage('home')} blogUrl={BLOG_URL} />;
+    return <AboutMe onGoExperience={() => navigate('experience')} onGoHome={() => navigate('home')} blogUrl={BLOG_URL} />;
   }
 
   return (
@@ -86,8 +106,8 @@ function App() {
       <nav className="navbar">
         
         <ul className="navbar--items">
-          <li><a className="navbar--content" href="#about" onClick={(e) => { e.preventDefault(); setPage('about'); }}>About Me</a></li>
-          <li><a className="navbar--content" href="#experience" onClick={(e) => { e.preventDefault(); setPage('experience'); }}>Work Experience</a></li>
+          <li><a className="navbar--content" href="#about" onClick={(e) => { e.preventDefault(); navigate('about'); }}>About Me</a></li>
+          <li><a className="navbar--content" href="#experience" onClick={(e) => { e.preventDefault(); navigate('experience'); }}>Work Experience</a></li>
           <li><a className="navbar--content" href={BLOG_URL} target="_blank" rel="noopener noreferrer">Blog</a></li>
         </ul>
       </nav>
