@@ -257,34 +257,76 @@
   white-space: nowrap;
 }
 
-/* ── Responsive ── */
+/* Wrapper used for mobile stacking — transparent on desktop */
+.we-connector-content-row {
+  display: contents;
+}
 @media (max-width: 600px) {
+  .we-page {
+    padding: 120px 24px 80px;
+  }
+
   .we-title {
     font-size: 28px;
     line-height: 36px;
-    margin: 32px 0 40px;
+    margin: 24px 0 32px;
   }
 
+  /* Stack: photo on top, then connector+content side by side */
   .we-item {
-    grid-template-columns: 140px 24px 1fr;
-    column-gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
   }
 
-  .we-photo-img {
-    width: 140px;
-    height: 170px;
+  .we-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Photo full width on mobile */
+  .we-logo-wrap {
+    justify-content: flex-start;
+    padding-top: 0;
+    width: 100%;
   }
 
   .we-photo-card {
-    width: 140px;
+    width: 100%;
+  }
+
+  .we-photo-img {
+    width: 100%;
+    height: 200px;
   }
 
   .we-logo {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Connector + content row */
+  .we-connector-content-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .we-connector {
+    flex-shrink: 0;
+  }
+
+  .we-content {
+    padding-bottom: 0;
+    min-width: 0;
   }
 
   .we-back {
-    margin-left: 0;
+    margin-left: 24px;
+  }
+
+  .we-skill-tag {
+    white-space: normal;
   }
 }

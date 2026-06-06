@@ -4,6 +4,8 @@ import awsLogo from './assets/amazon_web_services_logo.jpg';
 import volvoLogo from './assets/volvo_group_logo.jpg';
 import gatechLogo from './assets/college_of_computing_at_georgia_tech_logo.jpg';
 import awsPhoto from './assets/awsIntern.jpg';
+import avtechLogo from './assets/avtechtyee_logo.jpg';
+import avtechPhoto from './assets/avtech.png';
 import volvoPhoto from './assets/volvoIntern.jpg';
 
 // ============================================================
@@ -59,6 +61,16 @@ const JOBS: Job[] = [
     logo: gatechLogo,
     photo: undefined, // e.g. import gatechPhoto from './assets/photo-gatech.jpg'
     skills: ['Presentation', 'Curriculum Development', 'Program Management', 'Leadership'],
+  },
+  {
+    company: 'AvtechTyee',
+    role: 'Finance Intern',
+    period: 'Mar 2023 – Jun 2023',
+    description:
+      'My first ever job, God Bless Aditya Ashok for getting me this job. Mind blowing exposure to the real world, aviation industry. Built a reverse logistics pipeline to extract $6M+ in untapped value from excess and obsolete inventory. Absolute blast with Aditya.',
+    logo: avtechLogo,
+    photo: avtechPhoto,
+    skills: ['Financial Analysis', 'Business Management'],
   },
 ];
 // ============================================================
@@ -148,23 +160,26 @@ export default function WorkExperience({ onBack, linkedInUrl, blogUrl, onGoHome 
               )}
             </div>
 
-            {/* Connector line + dot */}
-            <div className="we-connector" aria-hidden="true">
-              <div className="we-dot" />
-              {index < JOBS.length - 1 && <div className="we-line" />}
-            </div>
+            {/* Connector + content wrapped for mobile stacking */}
+            <div className="we-connector-content-row">
+              {/* Connector line + dot */}
+              <div className="we-connector" aria-hidden="true">
+                <div className="we-dot" />
+                {index < JOBS.length - 1 && <div className="we-line" />}
+              </div>
 
-            {/* Text */}
-            <div className="we-content">
-              <p className="we-period">{job.period}</p>
-              <h2 className="we-role">{job.role}</h2>
-              <p className="we-company">{job.company}</p>
-              <p className="we-desc">{job.description}</p>
-              <div className="we-skills">
-                <span className="we-skills-label">Key skills:</span>
-                {job.skills.map((skill, i) => (
-                  <span key={i} className="we-skill-tag">{skill}</span>
-                ))}
+              {/* Text */}
+              <div className="we-content">
+                <p className="we-period">{job.period}</p>
+                <h2 className="we-role">{job.role}</h2>
+                <p className="we-company">{job.company}</p>
+                <p className="we-desc">{job.description}</p>
+                <div className="we-skills">
+                  <span className="we-skills-label">Key skills:</span>
+                  {job.skills.map((skill, i) => (
+                    <span key={i} className="we-skill-tag">{skill}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </li>

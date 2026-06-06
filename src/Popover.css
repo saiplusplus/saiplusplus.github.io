@@ -1,0 +1,96 @@
+/* ============================================================
+   Popover — reusable hover/click popup anchored to a word
+   ============================================================ */
+.popover-wrap {
+  position: relative;
+  display: inline;
+}
+
+/* The trigger word */
+.popover-trigger {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px dashed var(--primary);
+  display: inline;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.popover-trigger:hover {
+  opacity: 0.8;
+}
+
+.popover-caret {
+  font-size: 10px;
+  margin-left: 2px;
+  vertical-align: super;
+  opacity: 0.7;
+}
+
+/* The floating box */
+.popover-box {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid rgba(59, 131, 238, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 10px 14px;
+  min-width: 220px;
+  max-width: 320px;
+  z-index: 100;
+  animation: popover-in 0.12s ease;
+}
+
+/* Small arrow pointing down */
+.popover-box::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--white);
+  filter: drop-shadow(0 1px 0 rgba(59,131,238,0.15));
+}
+
+@keyframes popover-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* List inside popover */
+.popover-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.popover-item {
+  font-size: 13px;
+  color: var(--darkblue);
+  line-height: 1.4;
+  padding-left: 12px;
+  position: relative;
+}
+
+.popover-item::before {
+  content: '·';
+  position: absolute;
+  left: 2px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.popover-image {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 8px;
+  display: block;
+}

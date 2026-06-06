@@ -15,7 +15,7 @@ const PROFILE_IMAGE_ALT = 'Profile photo placeholder';
 const LINKEDIN_URL      = 'https://linkedin.com/in/saibalaji-n';
 const GITHUB_URL        = 'https://github.com/saiplusplus';
 const RESUME_PATH       = '/resume.pdf';
-const BLOG_URL          = 'https://hellosaibalaji.substack.com/';
+const BLOG_URL          = 'https://hellosaibalaji.substack.com/archive';
 const OWNER_EMAIL       = 'saibalaji [at] gatech.edu';
 // ============================================================
 
@@ -83,6 +83,7 @@ function App() {
   const navigate = (p: Page) => {
     const hash = p === 'home' ? '' : `#${p}`;
     window.location.hash = hash;
+    window.scrollTo(0, 0);
     setPage(p);
   };
 

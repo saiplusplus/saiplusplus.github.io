@@ -219,6 +219,12 @@
 @media (max-width: 640px) {
   .link-buttons {
     justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  .link-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    gap: 6px;
   }
 }
 
