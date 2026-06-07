@@ -3,12 +3,13 @@ import './App.css'
 import profilePlaceholder from './assets/hero.JPG'
 import WorkExperience from './WorkExperience'
 import AboutMe from './AboutMe'
+import EASTER_EGGS from './easter-eggs/index'
 
 // ============================================================
 // PERSONAL CONFIG — edit only this section to customise the page
 // ============================================================
 const OWNER_NAME        = 'SaiBalaji (Sai) Nagarajan';
-const OWNER_BIO         = 'Thanks for visiting my website! I am a 4th year computer science student at Georgia Tech. My mission is to help build a world that is more sustainable, happy, and humorous. Particularly interested in commercial aviation, entertainment, and transportation. Let\'s chat!';
+const OWNER_BIO         = 'Thanks for visiting my website! I am a 4th year computer science student at Georgia Tech. My mission is to help build a world that is more sustainable, happy, and humorous. Particularly interested in commercial aviation, entertainment, and transportation.\nLet\'s chat!';
 const OWNER_KEYWORDS    = 'data science, product/program management, builder, leader';
 const PROFILE_IMAGE_SRC = profilePlaceholder;
 const PROFILE_IMAGE_ALT = 'Profile photo placeholder';
@@ -79,6 +80,13 @@ function hashToPage(hash: string): Page {
 
 function App() {
   const [page, setPage] = useState<Page>(() => hashToPage(window.location.hash));
+  const [showEggs] = useState(true); // set to false after first mount via effect
+  const [eggKey, setEggKey] = useState(0);
+
+  useEffect(() => {
+    // Trigger eggs once on first home page load
+    setEggKey(k => k + 1);
+  }, []);
 
   const navigate = (p: Page) => {
     const hash = p === 'home' ? '' : `#${p}`;
@@ -103,6 +111,12 @@ function App() {
 
   return (
     <>
+      {/* ── Easter eggs (home page, first visit only) ── */}
+      {page === 'home' && showEggs && eggKey > 0 && EASTER_EGGS
+        .filter(e => e.active)
+        .map(e => <e.component key={`${e.id}-${eggKey}`} />)
+      }
+
       {/* ── Navbar ── */}
       <nav className="navbar">
         

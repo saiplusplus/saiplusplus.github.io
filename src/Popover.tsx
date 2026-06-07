@@ -12,6 +12,7 @@ interface PopoverProps {
 export default function Popover({ label, items, image, imageAlt, className }: PopoverProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
 
   // Detect touch device — skip hover behaviour on touch screens
   const isTouch = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
@@ -30,6 +31,22 @@ export default function Popover({ label, items, image, imageAlt, className }: Po
       document.removeEventListener('mousedown', handler);
       document.removeEventListener('touchstart', handler);
     };
+  }, [open]);
+
+  // Clamp popover so it never overflows the viewport edges
+  useEffect(() => {
+    if (!open || !boxRef.current) return;
+    const box = boxRef.current;
+    const rect = box.getBoundingClientRect();
+    const padding = 12; // min gap from screen edge
+
+    if (rect.right > window.innerWidth - padding) {
+      const overflow = rect.right - (window.innerWidth - padding);
+      box.style.transform = `translateX(calc(-50% - ${overflow}px))`;
+    } else if (rect.left < padding) {
+      const overflow = padding - rect.left;
+      box.style.transform = `translateX(calc(-50% + ${overflow}px))`;
+    }
   }, [open]);
 
   const hoverProps = isTouch ? {} : {
@@ -59,6 +76,7 @@ export default function Popover({ label, items, image, imageAlt, className }: Po
 
       {open && (
         <div
+          ref={boxRef}
           className="popover-box"
           {...boxHoverProps}
           role="tooltip"
