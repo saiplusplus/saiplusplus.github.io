@@ -87,6 +87,12 @@ export default function WorkExperience({ onBack, linkedInUrl, blogUrl, onGoHome 
     <div className="we-page">
       {/* ── Navbar ── */}
       <nav className="navbar">
+        <img
+          src="/favicon.png"
+          alt="Home"
+          className="navbar--home-btn"
+          onClick={onGoHome}
+        />
         <ul className="navbar--items">
           <li>
             <a className="navbar--content" href="#about" onClick={(e) => { e.preventDefault(); onGoHome(); }}>

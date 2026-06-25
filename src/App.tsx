@@ -119,7 +119,12 @@ function App() {
 
       {/* ── Navbar ── */}
       <nav className="navbar">
-        
+        <img
+          src="/favicon.png"
+          alt="Home"
+          className="navbar--home-btn"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        />
         <ul className="navbar--items">
           <li><a className="navbar--content" href="#about" onClick={(e) => { e.preventDefault(); navigate('about'); }}>About Me</a></li>
           <li><a className="navbar--content" href="#experience" onClick={(e) => { e.preventDefault(); navigate('experience'); }}>Work Experience</a></li>
