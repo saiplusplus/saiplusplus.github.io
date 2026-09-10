@@ -35,21 +35,6 @@
   text-decoration: none;
 }
 
-.navbar--home-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  object-fit: cover;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.navbar--home-btn:hover {
-  opacity: 0.8;
-  transform: scale(1.08);
-}
-
 .navbar--items {
   list-style: none;
   display: flex;

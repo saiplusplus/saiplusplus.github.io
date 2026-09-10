@@ -52,12 +52,6 @@ export default function AboutMe({ onGoExperience, onGoHome, blogUrl }: AboutMePr
     <div className="am-page">
       {/* ── Navbar ── */}
       <nav className="navbar">
-        <img
-          src="/favicon.png"
-          alt="Home"
-          className="navbar--home-btn"
-          onClick={onGoHome}
-        />
         <ul className="navbar--items">
           <li>
             <a className="navbar--content navbar--content--active" href="#about">

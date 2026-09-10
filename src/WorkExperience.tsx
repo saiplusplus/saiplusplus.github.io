@@ -4,6 +4,7 @@ import awsLogo from './assets/amazon_web_services_logo.jpg';
 import volvoLogo from './assets/volvo_group_logo.jpg';
 import gatechLogo from './assets/college_of_computing_at_georgia_tech_logo.jpg';
 import awsPhoto from './assets/awsIntern.jpg';
+import amazonPhoto from './assets/amazonAirIntern.jpeg';
 import avtechLogo from './assets/avtechtyee_logo.jpg';
 import avtechPhoto from './assets/avtech.png';
 import volvoPhoto from './assets/volvoIntern.jpg';
@@ -25,17 +26,17 @@ const JOBS: Job[] = [
   {
     company: 'Amazon.com (Amazon Air)',
     role: 'Supply Chain Manager Intern',
-    period: 'May 2026 – Current',
+    period: 'May 2026 – Aug 2026',
     description:
-      'Really a cool role, currently in it. Doing a mix of software development (data consolidation across 9+ MRO portals) and business program management. Get to work with aircraft engines, dream come true.  ',
+      'Probably the greatest internship any student had this summer. Product + technical program management + SWE, working with aircraft engines. Dream come true role, got to try a bit of everything. Built and shipped to production THRUST — a centralized, real-time, automated aircraft shop visit tracking platform + AI data ingestion pipeline that pulls live status out of messy vendor data, in use across Amazon Air today to manage the full lifecycle of 300+ engines shop visits, save 1500+ hours a year in manual tracking, and give fleet managers a never-before-seen clean understanding of where every engine is. Negotiated status update mechanisms directly with MRO vendors. Launched a production system. What a legendary time.',
     logo: amazonLogo,
-    photo: undefined, // e.g. import amazonPhoto from './assets/photo-amazon.jpg'
-    skills: ['Program Management', 'Data Engineering', 'Software Development'],
+    photo: amazonPhoto,
+    skills: ['Product Management', 'AI Engineering', 'AWS (Bedrock, Lambda, S3, SES)', 'Full-stack Development', 'Program Management'],
   },
   {
     company: 'Amazon Web Services (Professional Services)',
     role: 'Cloud Consultant Intern',
-    period: 'May 2025 – Jun 2025',
+    period: 'May 2025 – Aug 2025',
     description:
       'Mix of Product Management + Software Development. Conducted requirements gathering + Amazon working backwards process for internal agentic AI tool to help consultants study for AWS certs. Then I went out and built. Learned a hell lot of AI engineering. Highly praised product, generated practice quizzes based off AWS docs.',
     logo: awsLogo,
@@ -54,10 +55,10 @@ const JOBS: Job[] = [
   },
   {
     company: 'Georgia Tech College of Computing',
-    role: 'Senior Teaching Assistant',
+    role: 'Head Teaching Assistant',
     period: 'Jan 2024 – Current',
     description:
-      'Promoted to lead course development for 1000+ students. Highly praised for my presentation ability, making CS accesible, simple, and inviting. Anyone can compute! (Did Discrete Math now Object Oriented Programming)',
+      'Promoted to lead course development for 1000+ students, manage team of 26 TAs. Highly praised for my presentation ability, making CS accesible, simple, and inviting. Anyone can compute! (Did Discrete Math now Object Oriented Programming)',
     logo: gatechLogo,
     photo: undefined, // e.g. import gatechPhoto from './assets/photo-gatech.jpg'
     skills: ['Presentation', 'Curriculum Development', 'Program Management', 'Leadership'],
@@ -87,12 +88,6 @@ export default function WorkExperience({ onBack, linkedInUrl, blogUrl, onGoHome 
     <div className="we-page">
       {/* ── Navbar ── */}
       <nav className="navbar">
-        <img
-          src="/favicon.png"
-          alt="Home"
-          className="navbar--home-btn"
-          onClick={onGoHome}
-        />
         <ul className="navbar--items">
           <li>
             <a className="navbar--content" href="#about" onClick={(e) => { e.preventDefault(); onGoHome(); }}>

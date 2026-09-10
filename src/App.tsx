@@ -9,15 +9,15 @@ import EASTER_EGGS from './easter-eggs/index'
 // PERSONAL CONFIG — edit only this section to customise the page
 // ============================================================
 const OWNER_NAME        = 'SaiBalaji (Sai) Nagarajan';
-const OWNER_BIO         = 'Thanks for visiting my website! I am a 4th year computer science student at Georgia Tech. My mission is to help build a world that is more sustainable, happy, and humorous. Particularly interested in commercial aviation, entertainment, and transportation.\nLet\'s chat!';
-const OWNER_KEYWORDS    = 'data science, product/program management, builder, leader';
+const OWNER_BIO         = 'Thanks for visiting my website! I am a 4th year computer science student at Georgia Tech. My mission is to help build a world that is happier, humorous, and sustainable. Particularly interested in commercial aviation, entertainment, technology and transportation.\nLet\'s chat!';
+const OWNER_KEYWORDS    = 'leader, builder, product/program management';
 const PROFILE_IMAGE_SRC = profilePlaceholder;
 const PROFILE_IMAGE_ALT = 'Profile photo placeholder';
 const LINKEDIN_URL      = 'https://linkedin.com/in/saibalaji-n';
 const GITHUB_URL        = 'https://github.com/saiplusplus';
 const RESUME_PATH       = '/resume.pdf';
 const BLOG_URL          = 'https://hellosaibalaji.substack.com/archive';
-const OWNER_EMAIL       = 'saibalaji [at] gatech.edu';
+const OWNER_EMAIL       = 'hello [at] saibalaji.me';
 // ============================================================
 
 // Brand icons as inline SVGs
@@ -119,12 +119,6 @@ function App() {
 
       {/* ── Navbar ── */}
       <nav className="navbar">
-        <img
-          src="/favicon.png"
-          alt="Home"
-          className="navbar--home-btn"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        />
         <ul className="navbar--items">
           <li><a className="navbar--content" href="#about" onClick={(e) => { e.preventDefault(); navigate('about'); }}>About Me</a></li>
           <li><a className="navbar--content" href="#experience" onClick={(e) => { e.preventDefault(); navigate('experience'); }}>Work Experience</a></li>
